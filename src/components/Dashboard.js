@@ -33,6 +33,12 @@ class Dashboard extends Component {
     focused: null,
   };
 
+  selectPanel(id) {
+    this.setState({
+      focused: id,
+    });
+  }
+
   //either render four panels or one panel (conditional CSS class)
   render() {
     const dashboardClasses = classnames("dashboard", {
@@ -53,6 +59,7 @@ class Dashboard extends Component {
         id={panel.id}
         label={panel.label}
         value={panel.value}
+        onSelect={this.selectPanel}
       />
     ));
 
